@@ -1,0 +1,23 @@
+.navbar {
+    min-height: 50px; /* Сделаем навбар чуть выше для лучшего вида */
+    font-size: 20px; /* Оптимальный размер шрифта */
+}
+
+.navbar-brand {
+    font-size: 22px; /* Чуть меньше, чтобы соответствовало навбару */
+}
+
+.navbar-brand > img {
+    height: 40px; /* Увеличено для лучшей читаемости */
+    width: auto; /* Сохраняет пропорции */
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #e6efe8;
+    color: #393939;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', serif;
+}

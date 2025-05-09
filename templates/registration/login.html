@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <p class="errornote">
+      {% blocktranslate trimmed %}
+        You are authenticated as {{ username }}, but are not authorized to
+        access this page. Would you like to log in with a different account?
+      {% endblocktranslate %}
+    </p>
+  {% endif %}
+
+  <form action="{% url 'login' %}" method="post" id="login-form">
+    {% csrf_token %}
+    <div class="form-row">
+      {{ form.username.errors }}
+      {{ form.username.label_tag }} {{ form.username }}
+    </div>
+    <div class="form-row">
+      {{ form.password.errors }}
+      {{ form.password.label_tag }} {{ form.password }}
+      <input type="hidden" name="next" value="{{ next }}">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Log in</button>
+  </form>
+
+  <p>
+    <a href="{% url 'password_reset' %}">{% translate "Forgotten your password?" %}</a>
+  </p>
+{% endblock %}
